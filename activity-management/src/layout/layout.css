@@ -24,3 +24,11 @@
     justify-content: center;
     color: white;
   }
+  .header-box{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .header-btn{
+    margin-right: 20px;
+  }

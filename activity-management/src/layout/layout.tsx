@@ -6,7 +6,7 @@ import {
   UserOutlined,
   VideoCameraOutlined,
 } from '@ant-design/icons';
-import { Layout, Menu, theme } from 'antd';
+import { Button, Layout, Menu, theme } from 'antd';
 import "./layout.css"
 import { meuns } from './layout.config';
 import { Route, useHistory } from 'dva/router';
@@ -26,6 +26,9 @@ const App: React.FC = () => {
   const linkPage = ({key} :MenuInfo) =>{
     history.push(key)
   }
+  const loginout = () =>{
+    history.push('/login')
+  }
   return (
     <Layout id = "layout">
       <Sider trigger={null} collapsible collapsed={collapsed}>
@@ -41,10 +44,13 @@ const App: React.FC = () => {
       </Sider>
       <Layout className="site-layout">
         <Header style={{ padding: 0, background: colorBgContainer }}>
-          {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
-            className: 'trigger',
-            onClick: () => setCollapsed(!collapsed),
-          })}
+          <div className='header-box'>
+            {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
+              className: 'trigger',
+              onClick: () => setCollapsed(!collapsed),
+            })}
+            <Button className='header-btn' type='link' onClick={loginout}>退出登录</Button>
+          </div>
         </Header>
         <Content
           style={{

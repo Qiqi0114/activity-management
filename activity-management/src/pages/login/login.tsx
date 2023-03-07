@@ -1,9 +1,22 @@
 import { Button, Card, Form, Input } from "antd"
 import "./login.scss"
 import { ILoginParams } from "./login.type";
+import api from "../../api";
 export default function Login () {
-    const login = (values:ILoginParams) =>{
+    const login = async(values:ILoginParams) =>{
+        /* 
+            调用登录接口 并传对应参数
+        */
+        const data = await api.login(values)
+        /* 
+            调用完接口后，拿到token和角色
+            token要全局封装到axios
+            使用角色过滤对应菜单
+            最后跳转到活动页面
+         */
         console.log(values);
+        /* 登录后调用token获取菜单 */
+        const menu = await api.getMenu()
     }
     return (
         <div id="login">

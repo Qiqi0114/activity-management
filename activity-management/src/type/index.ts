@@ -1,3 +1,5 @@
+import { AnyAction } from "redux"
+
 //T通用返回体
 export interface IBaseReponse<T> {
     //错误码
@@ -19,4 +21,8 @@ export enum Role{
         活动管理角色
     */
     ACTIVITYMANAGE = 'activityMange'
+}
+
+export interface IPayload<T extends Partial<AnyAction> >{
+    payload:T
 }

@@ -9,7 +9,7 @@ import { IBaseReponse } from '../type'
 */
 axios.interceptors.response.use((response:AxiosResponse<IBaseReponse<any>>)=>{
 
-    if(response.data.code !== 1000){
+    if(response.data.code !== 200){
         //提示报错信息
         message.error(response.data.message)
         //抛出错误，阻塞后续程序运行
@@ -21,5 +21,11 @@ axios.interceptors.response.use((response:AxiosResponse<IBaseReponse<any>>)=>{
     */
     return response.data.data;
 })
-
+axios.interceptors.request.use((config)=>{
+    if(config.headers){
+        const globalLocal = JSON.parse(localStorage.getItem("gloabl")||"{}")
+        config.headers['Authorization'] = globalLocal.token
+    }
+    return config;
+})
 export default axios

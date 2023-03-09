@@ -4,8 +4,8 @@ import { Role } from "../../type"
     登录传的参数
 */
 export interface ILoginParams {
-    username:string
-    password:string
+    userAccount:string
+    passWord:string
 }
 /* 
     登录接口返回值

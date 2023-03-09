@@ -16,7 +16,7 @@ export default function Login () {
          */
         console.log(values);
         /* 登录后调用token获取菜单 */
-        const menu = await api.getMenu()
+/*         const menu = await api.getMenu() */
     }
     return (
         <div id="login">
@@ -30,14 +30,14 @@ export default function Login () {
                 >
                     <Form.Item
                     label="用户名"
-                    name="username"
+                    name="userAccount"
                     rules={[{ required: true, message: '请输入用户名!' }]}
                     >
                     <Input />
                     </Form.Item>
                     <Form.Item
                     label="密码"
-                    name="password"
+                    name="passWord"
                     rules={[{ required: true, message: '请输入密码!' }]}
                     >
                     <Input.Password />

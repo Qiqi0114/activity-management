@@ -4,7 +4,7 @@ import request from '../utils/request'
 export default{
     //登录
     login(data:ILoginParams){
-        request.post<ILoginParams,ILoginResponse>('/login/login',data)
+      return  request.post<ILoginParams,ILoginResponse>('/login/login',data)
     },
 /*     //token获取菜单
     getMenu(data:IMenuParams){
